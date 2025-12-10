@@ -13,7 +13,7 @@
 using namespace std;
 
 string generateSalt(int length) {
-    static const char* chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    const char* chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     static const int charsLen = 62;
     random_device rd;
     mt19937_64 gen(rd());
