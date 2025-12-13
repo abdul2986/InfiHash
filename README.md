@@ -29,10 +29,8 @@
 <pre><code># Clean previous builds
 Remove-Item -Recurse -Force build
 
-# Configure node-gyp
 node-gyp configure
 
-# Build the addon
 npm run build
 </code></pre>
 
@@ -141,9 +139,9 @@ console.log(fail); // false
 <p>Example output:</p>
 <pre><code>
 Password: mypassword
-Stored hash (salt:hash): a1b2c3d4e5f6g7h8:8f1e2d3c4b5a6978...
-✅ Verification (correct password): true
-❌ Verification (wrong password): false
+Stored hash (salt:hash): XT2DeB7H7Oz9cwjB:aa8bf1b64419eb25e572b440a2ddf0cdd947bc07322b17ec89b4bc193c6d77ef
+Verification (correct password): true
+Verification (wrong password): false
 </code></pre>
 
 <h2>📝 Notes</h2>
