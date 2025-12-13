@@ -7,6 +7,7 @@
   "scripts": {
     "build": "node-gyp build",
     "rebuild": "node-gyp configure build",
+    "postinstall": "node-gyp rebuild",
     "start": "node index.js"
   },
   "keywords": [
@@ -20,5 +21,13 @@
   "dependencies": {
     "bindings": "^1.5.0",
     "node-addon-api": "^8.5.0"
+  },
+  "files": [
+    "index.js",
+    "build/Release/*.node",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=16"
   }
 }
