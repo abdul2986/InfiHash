@@ -1,5 +1,0 @@
-src/
-test.js
-*.cpp
-*.h
-binding.gyp

@@ -24,7 +24,8 @@
   },
   "files": [
     "index.js",
-    "build/Release/*.node",
+    "binding.gyp",
+    "src",
     "README.md"
   ],
   "engines": {
