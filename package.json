@@ -1,6 +1,6 @@
 {
   "name": "infihash",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A hashing algorithm implemented in C++ and exposed as an npm package.",
   "main": "index.js",
   "gypfile": true,
