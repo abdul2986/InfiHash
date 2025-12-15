@@ -1,13 +1,11 @@
 {
   "name": "infihash",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A hashing algorithm implemented in C++ and exposed as an npm package.",
   "main": "index.js",
   "gypfile": true,
   "scripts": {
     "build": "node-gyp rebuild",
-    "rebuild": "node-gyp configure build",
-    "start": "node index.js",
     "prebuild": "prebuildify --napi",
     "install": "node-gyp-build"
   },
@@ -20,7 +18,6 @@
   "author": "Logan",
   "license": "MIT",
   "dependencies": {
-    "bindings": "^1.5.0",
     "node-addon-api": "^8.5.0",
     "node-gyp-build": "^4.8.4"
   },
@@ -28,7 +25,9 @@
     "index.js",
     "binding.gyp",
     "src",
-    "README.md"
+    "prebuilds",
+    "README.md",
+    "LICENSE"
   ],
   "engines": {
     "node": ">=16"
