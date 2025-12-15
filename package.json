@@ -5,10 +5,11 @@
   "main": "index.js",
   "gypfile": true,
   "scripts": {
-    "build": "node-gyp build",
+    "build": "node-gyp rebuild",
     "rebuild": "node-gyp configure build",
-    "postinstall": "node-gyp rebuild",
-    "start": "node index.js"
+    "start": "node index.js",
+    "prebuild": "prebuildify --napi",
+    "install": "node-gyp-build"
   },
   "keywords": [
     "hash",
@@ -20,7 +21,8 @@
   "license": "MIT",
   "dependencies": {
     "bindings": "^1.5.0",
-    "node-addon-api": "^8.5.0"
+    "node-addon-api": "^8.5.0",
+    "node-gyp-build": "^4.8.4"
   },
   "files": [
     "index.js",
@@ -30,5 +32,9 @@
   ],
   "engines": {
     "node": ">=16"
+  },
+  "devDependencies": {
+    "node-gyp": "^12.1.0",
+    "prebuildify": "^6.0.1"
   }
 }
