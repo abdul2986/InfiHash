@@ -10,19 +10,23 @@
   <li>🔒 Generate secure hashes for passwords.</li>
   <li>🧂 Salt is automatically generated and embedded in the hash.</li>
   <li>⚙️ Supports customizable rounds and memory usage.</li>
-  <li>🖥️ Simple Node.js API (hash and verify).</li>
-  <li>💻 Works on Windows, macOS, and Linux with Node.js native addons.</li>
+  <li>🖥️ Simple Node.js API (<code>hash</code> and <code>verify</code>).</li>
+  <li>💻 Works on Windows x64 out-of-the-box. For other OS/architectures, a C++ build environment is required (node-gyp, Python, build tools).</li>
 </ul>
 
 <h2>📦 Installation</h2>
 <pre><code>npm install infihash</code></pre>
 
-<p>Note: Since this is a native addon, you need node-gyp installed and a C++ build environment:</p>
+<p>Since this is a native addon, you need a C++ build environment for certain OS/architectures:</p>
 <ul>
   <li>🪟 Windows → Install Visual Studio with Desktop C++ workload.</li>
-  <li>🍎 macOS → Install Xcode command-line tools (xcode-select --install).</li>
-  <li>🐧 Linux → Install build-essential and Python 3.</li>
+  <li>🍎 macOS → Install Xcode command-line tools (<code>xcode-select --install</code>).</li>
+  <li>🐧 Linux → Install <code>build-essential</code> and Python 3.</li>
 </ul>
+
+<pre><code># Optional: Install node-gyp globally
+npm install -g node-gyp
+</code></pre>
 
 <h2>🛠️ Building from Source</h2>
 <p>If you want to build manually (e.g., after cloning the repo):</p>
@@ -30,7 +34,6 @@
 Remove-Item -Recurse -Force build
 
 node-gyp configure
-
 npm run build
 </code></pre>
 
@@ -41,17 +44,16 @@ npm run build
 
 const password = "mypassword";
 
-// Generate hash (optional salt, rounds, and memory)
-const storedHash = hash(password, "", 4, 1024);
-
+// Generate hash (default: rounds=3, memKB=1024)
+const storedHash = hash(password);
 console.log("Stored hash (salt:hash):", storedHash);
 
 // Verify correct password
-const isCorrect = verify(password, storedHash, 4, 1024);
+const isCorrect = verify(password, storedHash);
 console.log("✅ Verification (correct password):", isCorrect); // true
 
 // Verify wrong password
-const isWrong = verify("wrongpassword", storedHash, 4, 1024);
+const isWrong = verify("wrongpassword", storedHash);
 console.log("❌ Verification (wrong password):", isWrong); // false
 </code></pre>
 
@@ -85,10 +87,6 @@ console.log("❌ Verification (wrong password):", isWrong); // false
   </tr>
 </table>
 
-<pre><code>const stored = hash("supersecret");
-console.log(stored); // "a1b2c3d4e5f6g7h8:8f1e2d3c4b5a6978..."
-</code></pre>
-
 <h3>verify(password: string, storedHash: string, rounds?: number, memKB?: number): boolean</h3>
 <table border="1" width="100%">
   <tr>
@@ -117,13 +115,6 @@ console.log(stored); // "a1b2c3d4e5f6g7h8:8f1e2d3c4b5a6978..."
   </tr>
 </table>
 
-<pre><code>const ok = verify("supersecret", stored);
-console.log(ok); // true
-
-const fail = verify("wrongpass", stored);
-console.log(fail); // false
-</code></pre>
-
 <h2>⚙️ How It Works</h2>
 <ul>
   <li>🧂 Generates a random salt if none is provided.</li>
@@ -133,7 +124,7 @@ console.log(fail); // false
 </ul>
 
 <h2>🧪 Testing</h2>
-<p>You can test the module using <code>test.js</code>:</p>
+<p>Create <code>test.js</code> with the example usage to verify module functionality:</p>
 <pre><code>node test.js
 </code></pre>
 <p>Example output:</p>
