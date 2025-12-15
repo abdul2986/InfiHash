@@ -15,7 +15,7 @@
     "encryption",
     "infihash"
   ],
-  "author": "Logan",
+  "author": "Abdul Rehman",
   "license": "MIT",
   "dependencies": {
     "node-addon-api": "^8.5.0",
