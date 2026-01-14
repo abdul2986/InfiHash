@@ -143,4 +143,4 @@ Verification (wrong password): false
 </ul>
 
 <h2>📄 License</h2>
-<p>MI License</p>
+<p>MIT License</p>
